@@ -29,7 +29,10 @@ const CreatePost = () => {
   }
 
   const handleSurpriseMe = () => {
-    const prompt = getRandomPrompt();
+    const randomPrompt = getRandomPrompt(form.prompt);
+    setForm((previousForm)=>{
+      return {...previousForm , prompt : randomPrompt}
+    });
     //Then do something with it.
   }
 
