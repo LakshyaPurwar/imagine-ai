@@ -5,7 +5,7 @@ const FormField = ({ label, type, name, placeholder, value, handleChange, isSurp
     <div>
 
       <div className='flex item-center gap-2 mb-2'>
-        <label htmlFor={name} className='block text-sm font-medium text-gray-900'>
+        <label htmlFor={name} className='block text-sm font-[600] text-gray-700'>
           {label}
         </label>
         {isSurpriseMe && (
@@ -26,10 +26,6 @@ const FormField = ({ label, type, name, placeholder, value, handleChange, isSurp
         required
         className='bg-gray-50 border border-gray-300 text-gray-600 text-sm font-[600] rounded-lg focus:ring-[#4649ff] focus:ring-1 focus:border-[#4649ff] outline-none block w-full p-3'
       />
-
-      
-
-
 
 
     </div>
