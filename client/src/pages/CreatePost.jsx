@@ -24,7 +24,7 @@ const CreatePost = () => {
     {
       setIsLoading(true);
       try{
-        const response = await fetch('http://localhost:8080/api/v1/post' , {
+        const response = await fetch('https://imagine-ai-1jah.onrender.com/api/v1/post' , {
           method:'POST',
           headers:{
             'Content-Type' : 'application/json',
@@ -71,7 +71,7 @@ const CreatePost = () => {
 
         setGeneratingImg(true);
 
-        const response = await fetch('http://localhost:8080/api/v1/dalle',
+        const response = await fetch('https://imagine-ai-1jah.onrender.com/api/v1/dalle',
           {
             method: 'POST',
             headers: {
@@ -80,11 +80,13 @@ const CreatePost = () => {
             body: JSON.stringify({ prompt: form.prompt }),
           });
 
-          console.log(response.status);
+          console.log(response.status+ "is the response sent from the backend");
 
-          if(response.status == 500 )
+          if(response.status === 500 )
           {
-            throw new Error(await response.json());
+            const data = await response.json();
+            console.log(data.message + "because an error response was sent back");
+            throw new Error(data.message);
           }
 
         const data = await response.json();
@@ -95,6 +97,7 @@ const CreatePost = () => {
         });
       }
       catch (error) {
+        console.log(error);
         alert(error);
       }
       finally {

@@ -8,7 +8,7 @@ dotenv.config();
 const router = express.Router();
 
 const configuration = new Configuration({
-    apiKey : "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",
+    apiKey : process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -48,7 +48,7 @@ router.route('/').post( async (req , res)=>{
         console.log(error.response);
         console.log(error.response.data);
         console.log(error.message);
-        res.status(500).send(error.message);
+        res.status(500).json({success : false , message : error.message});
 
     }
 

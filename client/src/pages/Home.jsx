@@ -26,7 +26,7 @@ const Home = () => {
       setIsLoading(true);
       try {
 
-        const response = await fetch('http://localhost:8080/api/v1/post');
+        const response = await fetch('https://imagine-ai-1jah.onrender.com/api/v1/post');
 
         if (response.ok) {
           const result = await  response.json();
